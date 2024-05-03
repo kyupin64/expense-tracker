@@ -8,7 +8,7 @@ export default function Header({ showMenu, setShowMenu, setIsHome }) {
         <button className="px-2 py-1" onClick={() => setShowMenu(!showMenu)}>{showMenu ? "Close Menu" : "Open Menu"}</button>
       </nav>
 
-      {showMenu ? <Menu setShowMenu={setShowMenu} /> : null}
+      {showMenu ? <Menu setShowMenu={setShowMenu} setIsHome={setIsHome}/> : null}
 
       {/* <div>
         <Outlet />
