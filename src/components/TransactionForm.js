@@ -9,7 +9,7 @@ export default function TransactionForm() {
     const currentList = useCurrentList();
 
     const handleClick = () => {
-        if (text !== "") {
+        if (text !== "" && Number(amount) !== 0) {
             const newId = Date.now();
             dispatch({
                 type: "addTransaction",
