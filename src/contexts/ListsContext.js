@@ -43,6 +43,7 @@ function listsReducer(lists, action) {
             updatedLists[currentList].transactions[newId] = {
                 id: newId,
                 text: action.text,
+                amount: action.amount,
             };
 
             return updatedLists;
