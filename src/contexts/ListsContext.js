@@ -25,13 +25,13 @@ export function useListsDispatch() {
 
 function listsReducer(lists, action) {
     const currentList = action.currentList;
-    const newId = action.id;
+    const id = action.id;
 
     switch (action.type) {
         case "addList": {
             console.log("Added new expense tracker");
-            return {...lists, [newId]: {
-                id: newId,
+            return {...lists, [id]: {
+                id: id,
                 name: action.name,
                 transactions: {},
             }};
@@ -40,8 +40,8 @@ function listsReducer(lists, action) {
             console.log("Added new transaction");
             const updatedLists = {...lists};
 
-            updatedLists[currentList].transactions[newId] = {
-                id: newId,
+            updatedLists[currentList].transactions[id] = {
+                id: id,
                 text: action.text,
                 amount: action.amount,
             };
@@ -50,11 +50,23 @@ function listsReducer(lists, action) {
         }
         case "changeTransaction": {
             console.log("Edited transaction");
-            return null;
+            const updatedLists = {...lists};
+
+            updatedLists[currentList].transactions[id] = {
+                id: id,
+                text: action.text,
+                amount: action.amount,
+            };
+
+            return updatedLists;
         }
         case "deleteTransaction": {
             console.log("Deleted transaction");
-            return null;
+            const updatedLists = {...lists};
+
+            delete updatedLists[currentList].transactions[id];
+
+            return updatedLists;
         };
     };
 };

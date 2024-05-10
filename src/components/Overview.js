@@ -9,15 +9,23 @@ export default function Overview() {
     const currentList = useCurrentList();
 
     useEffect(() => {
+        const currentTrans = lists[currentList].transactions;
         let incomeCount = 0;
         let expenseCount = 0;
-        Object.values(lists[currentList].transactions).forEach((t) => {
-            if (Number(t.amount) > 0) {
-                incomeCount += Number(t.amount);
-            } else if (Number(t.amount) < 0) {
-                expenseCount += Number(t.amount);
-            };
-        });
+
+        if (Object.keys(currentTrans).length > 0) {
+            Object.entries(currentTrans).forEach(([key, value]) => {
+                if (currentTrans[key]) {
+                    const amount = Number(value.amount);
+                    if (amount > 0) {
+                        incomeCount += amount;
+                    } else if (amount < 0) {
+                        expenseCount += amount;
+                    };
+                };
+            });
+        };
+
         setIncome(incomeCount);
         setExpense(expenseCount);
     }, [lists]);
