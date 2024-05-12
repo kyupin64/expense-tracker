@@ -9,7 +9,7 @@ export default function Overview() {
     const currentList = useCurrentList();
 
     useEffect(() => {
-        const currentTrans = lists[currentList].transactions;
+        const currentTrans = lists[currentList]?.transactions || {};
         let incomeCount = 0;
         let expenseCount = 0;
 

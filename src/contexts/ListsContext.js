@@ -1,11 +1,34 @@
 "use client";
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useRef } from "react";
 
 export const ListsContext = createContext(null);
 export const ListsDispatchContext = createContext(null);
 
+export default function saveThings(lists) {
+    localStorage.setItem("lists", JSON.stringify(lists));
+};
+
 export function ListsProvider({ children }) {
     const [lists, dispatch] = useReducer(listsReducer, {});
+    const isInitialRender = useRef(true);
+
+    useEffect(() => {
+        const savedLists = JSON.parse(localStorage.getItem("lists"));
+        if (savedLists) {
+            dispatch({
+                type: "restoreSave",
+                savedLists: savedLists,
+            });
+        };
+    }, []);
+    
+    useEffect(() => {
+        if (!isInitialRender.current) {
+            saveThings(lists);
+        } else {
+            isInitialRender.current = false;
+        };
+    }, [lists]);
 
     return (
         <ListsContext.Provider value={lists}>
@@ -68,6 +91,11 @@ function listsReducer(lists, action) {
             delete updatedLists[currentList].transactions[id];
 
             return updatedLists;
+        }
+        case "restoreSave": {
+            const savedLists = action.savedLists;
+
+            return savedLists;
         };
     };
 };

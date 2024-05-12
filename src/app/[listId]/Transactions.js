@@ -6,7 +6,7 @@ import EditButton from "./EditButton";
 export default function Transactions() {
     const lists = useLists();
     const currentList = useCurrentList();
-    const currentTrans = lists[currentList].transactions;
+    const currentTrans = lists[currentList]?.transactions || {};
     
     const handleMouseEnter = e => {
         const buttons = e.currentTarget.childNodes[0];
