@@ -26,9 +26,10 @@ export default function EditButton({ itemKey }) {
     };
 
     const editField = (
-        <div className="absolute top-1 flex gap-2">
-            <input placeholder={text} value={text} onChange={e => setText(e.target.value)} className="w-24"></input>
-            <input type="number" placeholder={amount} value={amount} onChange={e => setAmount(e.target.value)} className="w-10"></input>
+        <div className="absolute flex flex-col w-56 p-1 gap-1 bg-white">
+            <label className="text-black">Editing...</label>
+            <input placeholder={text} value={text} onChange={e => setText(e.target.value)} className="w-full"></input>
+            <input type="number" placeholder={amount} value={amount} onChange={e => setAmount(e.target.value)} className="w-full"></input>
             <button onClick={handleSubmit}>Submit</button>
         </div>
     );
@@ -36,7 +37,7 @@ export default function EditButton({ itemKey }) {
     return (
         <>
             {isEditing ? editField : null}
-            <button className="p-1" onClick={() => setIsEditing(true)}>Edit</button>
+            <button className="edit-btn" onClick={() => setIsEditing(true)}>Edit</button>
         </>
     );
 };

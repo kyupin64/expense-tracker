@@ -3,20 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 13, 2, 20;
-  --background-rgb: 220, 211, 227;
+  --foreground-rgb: 30, 30, 30;
+  --background-rgb: 255, 255, 255;
+  --primary-rgb: 215, 154, 231;
+  --secondary-rgb: 244, 168, 198;
+  --accent-rgb: 255, 148, 148;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 220, 211, 227;
-    --background-rgb: 13, 2, 20;
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 30, 30, 30;
+    --primary-rgb: 74, 10, 90;
+    --secondary-rgb: 106, 14, 51;
+    --accent-rgb: 106, 18, 28;
   }
 }
 
 body {
-  background: #7c5b8a;
-  padding: 4em;
+  background: rgb(var(--primary-rgb));
+  padding: 2em;
   height: 100dvh;
 }
 
@@ -30,12 +36,70 @@ h1 {
   font-weight: bold;
 }
 
-a:hover, button:hover {
-  color: #b788f9;
+h2 {
+  font-size: 1.4em;
+  font-weight: bold;
 }
 
-button {
-  background: #401f54;
+button, a {
+  background: rgb(var(--secondary-rgb));
+  padding: .25rem .5rem;
+  border-radius: .2rem;
+}
+
+a:hover, button:hover {
+  background: rgb(var(--primary-rgb));
+}
+
+select, input {
+  background: rgb(var(--accent-rgb));
+  color: rgb(var(--foreground-rgb));
+  border-radius: .2rem;
+  padding: .25rem .5rem;
+}
+
+label, h3 {
+  font-size: 1.2em;
+}
+
+.menu-container {
+  border-color: rgb(var(--accent-rgb));
+  border-radius: .3rem;
+}
+
+.balance, .income, .expense {
+  padding: .4rem .8rem;
+  border-radius: .3rem;
+}
+
+.balance {
+  background: rgb(var(--primary-rgb));
+}
+
+.income {
+  background: rgb(var(--secondary-rgb));
+}
+
+.expense {
+  background: rgb(var(--accent-rgb));
+}
+
+.history {
+  background: rgb(var(--secondary-rgb));
+  border-radius: .3rem;
+}
+
+.transactions {
+  background: rgb(var(--background-rgb));
+}
+
+.edit-btn, .delete-btn {
+  padding: .25rem .5rem;
+  border: 2px solid white;
+}
+
+.confirm-delete {
+  background: rgb(var(--background-rgb));
 }
 
 @layer utilities {

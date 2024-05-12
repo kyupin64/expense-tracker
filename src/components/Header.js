@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className="flex justify-between items-center w-full py-7 px-10">
+      <nav className="flex justify-between items-center w-full p-5">
         <h1><Link href="/" onClick={() => setShowMenu(false)}>Expense Tracker</Link></h1>
         <button className="px-2 py-1" onClick={() => setShowMenu(!showMenu)}>{showMenu ? "Close Menu" : "Open Menu"}</button>
       </nav>

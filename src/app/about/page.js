@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <div>
+        <div className="p-5 flex flex-col gap-10">
             <h1>About this website</h1>
             <p>
                 On the home page, type in a name for your new expense tracker and click "Submit" to create it. You can access 

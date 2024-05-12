@@ -31,19 +31,21 @@ export default function Overview() {
     }, [lists]);
 
     return (
-        <>
-            <h2>Balance</h2>
-            <p>${income + expense}</p>
-            <div className="flex">
-                <div>
+        <div className="flex flex-col gap-4 items-center w-64 px-4">
+            <div className="balance w-full">
+                <h2>Balance</h2>
+                <p>${income + expense}</p>
+            </div>
+            <div className="flex justify-between w-full">
+                <div className="income">
                     <h3>Income:</h3>
-                    <p>{income}</p>
+                    <p>${income}</p>
                 </div>
-                <div>
+                <div className="expense">
                     <h3>Expense:</h3>
-                    <p>{expense}</p>
+                    <p>${expense}</p>
                 </div>
             </div>
-        </>
+        </div>
     );
 };

@@ -19,17 +19,19 @@ export default function DeleteButton({ itemKey }) {
     };
 
     const confirmDeleteField = (
-        <div className="absolute top-1 -start-36 flex gap-2">
-            <p className="bg-white w-80">Are you sure you want to delete transaction "{currentTrans.text}" of ${currentTrans.amount}?</p>
-            <button onClick={() => setIsDeleting(false)} className="bg-red-500">No, go back</button>
-            <button onClick={handleDelete} className="bg-green-500">Yes, delete</button>
+        <div className="absolute top-1 flex flex-col gap-2 bg-white p-1">
+            <p className="confirm-delete w-56 py-2 text-center">Are you sure you want to delete transaction "{currentTrans.text}" of ${currentTrans.amount}?</p>
+            <div className="flex justify-between">
+                <button onClick={() => setIsDeleting(false)} className="bg-red-700">No, go back</button>
+                <button onClick={handleDelete} className="bg-green-700">Yes, delete</button>
+            </div>
         </div>
     );
 
     return (
         <>
             {isDeleting ? confirmDeleteField : null}
-            <button className="p-1" onClick={() => setIsDeleting(true)}>X</button>
+            <button className="delete-btn" onClick={() => setIsDeleting(true)}>X</button>
         </>
     );
 };

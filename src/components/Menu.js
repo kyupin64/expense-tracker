@@ -23,7 +23,7 @@ export default function Menu({ setShowMenu }) {
 
     return (
         <div className="px-6 pb-6 h-full w-full flex justify-center items-center">
-            <div className="p-10 h-full w-full flex flex-col border-4 border-red-500 rounded-lg">
+            <div className="menu-container p-10 h-full w-full flex flex-col border-4">
                 <label htmlFor="menu-list">Have a list</label>
                 <select id="menu-list" name="menu-list" onChange={handleChange}>
                     <option>Select a list:</option>

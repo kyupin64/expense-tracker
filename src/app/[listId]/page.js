@@ -19,12 +19,14 @@ export default function ExpenseTracker({ params }) {
     
     if (lists[currentList] !== undefined) {
         return (
-            <>
+            <div className="flex flex-col justify-around items-center gap-10 w-full p-5">
                 <h1>{lists[currentList].name}</h1>
-                <Overview />
-                <Transactions />
-                <TransactionForm />
-            </>
+                <div className="flex flex-wrap justify-evenly gap-10 w-full">
+                    <Overview />
+                    <Transactions />
+                    <TransactionForm />
+                </div>
+            </div>
         );
     } else {
         return null;

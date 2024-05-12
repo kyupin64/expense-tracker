@@ -24,14 +24,18 @@ export default function TransactionForm() {
     };
 
     return (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4 w-64 items-center">
             <h2>Add new transaction</h2>
-            <label>Description:</label>
-            <input placeholder="Name/description" value={text} onChange={e => setText(e.target.value)}></input>
-            <label>Amount:</label>
-            <p>(negative = expense; positive = income)</p>
-            <input type="number" placeholder="Amount" value={amount} onChange={e => setAmount(e.target.value)}></input>
-            <button onClick={handleClick}>Submit</button>
+            <div className="flex flex-col items-center w-full gap-2">
+                <label>Description:</label>
+                <input placeholder="Name/description" value={text} className="w-full" onChange={e => setText(e.target.value)}></input>
+            </div>
+            <div className="flex flex-col items-center w-full gap-2">
+                <label>Amount:</label>
+                <p className="text-center">(negative = expense; positive = income)</p>
+                <input type="number" placeholder="Amount" value={amount} className="w-full" onChange={e => setAmount(e.target.value)}></input>
+            </div>
+            <button className="w-full" onClick={handleClick}>Submit</button>
         </div>
     );
 };

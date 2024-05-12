@@ -17,8 +17,8 @@ export default function RootLayout({ children }) {
     <ListsProvider>
       <CurrentListProvider>
         <html lang="en">
-          <body className={inter.className}>
-            <main className="flex h-full flex-col items-center justify-between">
+          <body className={`${inter.className} h-max`}>
+            <main className="flex h-max w-full flex-col gap-10 items-center justify-between">
               <Header />
               {children}
               <Footer />

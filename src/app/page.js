@@ -25,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <form id="new-expense-tracker-form" className={`flex flex-col gap-5 pt-10`}>
+    <form id="new-expense-tracker-form" className={`flex flex-col gap-5 px-4`}>
       <h1>Create a new budget</h1>
       <label htmlFor="name">Name your expense tracker:</label>
       <input id="name" placeholder="Title" value={name} onChange={e => setName(e.target.value)}></input>
