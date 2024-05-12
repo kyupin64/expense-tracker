@@ -27,8 +27,8 @@ export default function EditButton({ itemKey }) {
 
     const editField = (
         <div className="absolute top-1 flex gap-2">
-            <input placeholder={currentTrans.text} value={text} onChange={e => setText(e.target.value)} className="w-24"></input>
-            <input type="number" placeholder={currentTrans.amount} value={amount} onChange={e => setAmount(e.target.value)} className="w-10"></input>
+            <input placeholder={text} value={text} onChange={e => setText(e.target.value)} className="w-24"></input>
+            <input type="number" placeholder={amount} value={amount} onChange={e => setAmount(e.target.value)} className="w-10"></input>
             <button onClick={handleSubmit}>Submit</button>
         </div>
     );

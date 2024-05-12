@@ -1,18 +1,24 @@
+"use client";
 import { useSetCurrentList } from "@/contexts/CurrentListContext";
 import { useLists } from "@/contexts/ListsContext";
+import { useRouter } from "next/navigation";
 
-export default function Menu({ setShowMenu, setIsHome }) {
+export default function Menu({ setShowMenu }) {
+    const router = useRouter();
     const setCurrentList = useSetCurrentList();
     const lists = useLists();
 
-    const handleChange = (e) => {
-        setCurrentList(e.target.childNodes[e.target.selectedIndex].id);
-        setIsHome(false);
+    const handleChange = e => {
+        const currentId = e.target.childNodes[e.target.selectedIndex].id;
+        setCurrentList(currentId);
         setShowMenu(false);
+        router.push(`/${currentId}`);
     };
 
     const listOptions = Object.keys(lists).map((key) => {
-        return <option key={lists[key].id} id={lists[key].id} value={lists[key].name}>{lists[key].name}</option>;
+        return (
+            <option key={lists[key].id} id={lists[key].id} value={lists[key].name}>{lists[key].name}</option>
+        );
     });
 
     return (

@@ -3,12 +3,11 @@ import { useLists, useListsDispatch } from "@/contexts/ListsContext";
 import { useState } from "react";
 
 export default function DeleteButton({ itemKey }) {
+    const [isDeleting, setIsDeleting] = useState(false);
     const lists = useLists();
     const currentList = useCurrentList();
     const dispatch = useListsDispatch();
     const currentTrans = lists[currentList].transactions[itemKey];
-
-    const [isDeleting, setIsDeleting] = useState(false);
     
     const handleDelete = () => {
         dispatch({
