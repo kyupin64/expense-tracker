@@ -20,3 +20,7 @@ of the components to handle changes and other state data. I also used effects fo
 and handling potential errors. I used custom hooks in the context files to export the useContext methods and a 
 useRef in ListsContext to make sure it didn't save things to localStorage before it could retrieve the previously 
 saved lists object.
+
+One major flaw in my design is that you have to be currently hovering over a transaction in order to edit or delete 
+it and the field disappears when you stop hovering over it, but this was the best way I could find to implement the 
+buttons and fields. I might try to fix it in the future.
